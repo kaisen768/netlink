@@ -23,4 +23,6 @@ include_directories(
 
 target_link_libraries( ${PROJECT_NAME}
         ${UV_LIBRARY}
+        pthread
+        dl
         )
