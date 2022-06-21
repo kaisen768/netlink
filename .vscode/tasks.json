@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "mkdir",
+            "type": "shell",
+            "command": "mkdir -p build",
+        },
+        {
+            "label": "cmake",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "..",
+                "-DCMAKE_PREFIX_PATH=/home/kaisen/wk/opt/host-local",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            ],
+            "dependsOn": [
+                "mkdir"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            }
+        },
+        {
+            "label": "make",
+            "type": "shell",
+            "command": "make",
+            "dependsOn": [
+                "cmake"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            }
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            }
+        }
+    ]
+}

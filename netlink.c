@@ -4,11 +4,16 @@
 #include <string.h>
 #include <linux/netlink.h>
 #include <linux/rtnetlink.h>
+
+#ifndef __USE_MISC
+#define __USE_MISC
+#endif
 #include <net/if.h>
 
 #include "netlink.h"
 
-#define NET_OPERSTATE_PATH    "/sys/class/net/eth0/operstate"
+// #define NET_OPERSTATE_PATH    "/sys/class/net/eth0/operstate"
+#define NET_OPERSTATE_PATH    "/sys/class/net/ens33/operstate"
 
 typedef enum nl_operstate_e {
     OPERSTATE_UP        = 0,
